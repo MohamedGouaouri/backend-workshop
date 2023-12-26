@@ -8,3 +8,6 @@ Objectives:
 - Understand what express.js is and how to create a simple application
 - Listen for requests and send responses using express
 - Collect data from a URL using request.params
+- Understand body parsing
+- Understand express router
+- Understand express middleware
