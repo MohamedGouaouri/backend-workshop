@@ -11,3 +11,12 @@ Objectives:
 - Understand body parsing
 - Understand express router
 - Understand express middleware
+
+
+## Project
+Specifications
+- Coders can create accounts and authenticate
+- Content manager can create accounts and authenticate
+- Content manager can submit new challenge (description, function, tests..)
+- Admins can manage everything
+- Coders can submit a challenge (function body)
