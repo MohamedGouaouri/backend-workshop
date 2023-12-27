@@ -1,5 +1,6 @@
 import express from 'express'
 import { v4 } from 'uuid'
+import validateUserSchema from '../validators/user.validator.js';
 
 /*
   This router object will have similar methods (.get, .post, .patch, .delete) to the 
@@ -18,7 +19,7 @@ router.get('/', (req, res) => {
 })
 
 // Posting data
-router.post('/add', (req, res) => {
+router.post('/add', validateUserSchema ,(req, res) => {
     const user = req.body
     users.push({
         id: v4(),
