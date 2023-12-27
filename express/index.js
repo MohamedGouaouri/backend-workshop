@@ -1,12 +1,14 @@
 import express from 'express'
 import {router as usersRouter} from './routes/users.routes.js'
 import {router as adminsRouter} from './routes/admins.routes.js'
+import logger from './middlewares/logger.js'
 
 // Instantiate your express app
 const app = express()
 
 // Add json middleware
 app.use(express.json())
+app.use(logger)
 
 // Define http handlers
 app.get('/', (req, res) => {
