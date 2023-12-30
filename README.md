@@ -11,3 +11,9 @@ Objectives:
 - Understand body parsing
 - Understand express router
 - Understand express middleware
+
+## Mongodb
+Objectives:
+- Compare and contrast SQL and NoSQL databases
+- Install Mongo and start a Mongo Server
+- Perform CRUD operations in a Mongo console
