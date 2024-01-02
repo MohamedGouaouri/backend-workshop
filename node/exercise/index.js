@@ -1,9 +1,11 @@
 import axios from 'axios';
 
+// TODO: Pring usage message
 if (process.argv.length != 3) console.log('Usage')
 
 const searchFor = process.argv[2]
 axios
+    // TODO: Extract the url into env variable
     .get(`https://icanhazdadjoke.com/search?term=${searchFor}`, {
         headers: {
             'Content-Type': 'application/json',
