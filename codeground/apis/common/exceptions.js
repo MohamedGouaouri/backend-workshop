@@ -23,7 +23,39 @@ export class ResourceNotFoundException extends Error {
         this.name = 'ResourceNotFoundException'
     }
     getHttpCode() {
+        return 404
+    }
+    getMessage() {
+        return this.message;
+    }
+}
+
+export class SubmissionFailedException extends Error {
+    constructor(
+        message='SubmissionFailedException'
+    ){
+        super(message)
+        this.message = message;
+        this.name = 'SubmissionFailedException'
+    }
+    getHttpCode() {
         return 400
+    }
+    getMessage() {
+        return this.message;
+    }
+}
+
+export class GradingFailedException extends Error {
+    constructor(
+        message='GradingFailedException'
+    ){
+        super(message)
+        this.message = message;
+        this.name = 'GradingFailedException'
+    }
+    getHttpCode() {
+        return 500
     }
     getMessage() {
         return this.message;

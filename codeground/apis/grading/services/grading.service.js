@@ -9,6 +9,8 @@ import axios from 'axios'
 import { Challenge } from "../../content_management/models/Challenge.js";
 import { RCE_SERVER } from '../../../config/server.config.js';
 import { LeaderBoard } from '../models/leaderboard.model.js';
+import { ServiceResponseFailure, ServiceResponseSuccess } from '../../common/service_response.js';
+import { ResourceNotFoundException, SubmissionFailedException } from '../../common/exceptions.js';
 
 export const grade = async (submission) => {
     console.log(submission);
@@ -41,27 +43,22 @@ export const grade = async (submission) => {
                     score: await calculateScore(challenge, rceResp)
                 })
                 await lb.save();
-                return {
-                    code: 200,
-                    data: rceResp
-                }
+                return new ServiceResponseSuccess(
+                    rceResp,
+                )
             }
-            return {
-                code: 200,
-                message: 'Failed, try a new submission',
-                data: rceResp
-            }
+            return new ServiceResponseFailure(
+                new SubmissionFailedException('Some tests have failed, Try a new submission')
+            )
         }
-        return {
-            code: 400,
-            error: 'No challenge found',
-        }
+        return new ServiceResponseFailure(
+            new ResourceNotFoundException('No challenge found')
+        )
     } catch (error) {
         console.error(error);
-        return {
-            code: 500,
-            error: 'Cant grade submission',
-        }
+        return new ServiceResponseFailure(
+            new ResourceNotFoundException('Can not grade your submission')
+        )
     }
 }
 
