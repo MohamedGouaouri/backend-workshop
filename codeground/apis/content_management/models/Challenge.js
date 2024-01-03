@@ -8,7 +8,7 @@ const functionInputSchema = new mongoose.Schema({
     type: String,
     required: false,
   }
-})
+}, { _id : false })
 const testSchema = new mongoose.Schema({
   weight: { type: Number, required: true },
   inputs: [{
